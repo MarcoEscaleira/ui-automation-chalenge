@@ -6,6 +6,9 @@ var challenge1Page = Object.create(page, {
     peopleAndCulture: {
         get: function () {
             return $("a.ui-button.ui-button-default");
+            /*  BONUS:
+                return $("#quote>.section-footer>a");
+            */
         }
     },
     contactCity: {
@@ -15,7 +18,7 @@ var challenge1Page = Object.create(page, {
     },
     jobList: {
         get: function () {
-            return $(/*DEFINE THE SELECTOR HERE*/)
+            return $("a.jobs-item:nth-child(8)")
         }
     },
 
