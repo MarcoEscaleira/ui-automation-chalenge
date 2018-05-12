@@ -8,21 +8,23 @@ describe('Mindera QA Graduate Challenge 1:', function () {
 
     describe('Mindera QA Graduate Challenge 1.1 :', function () {
         it('You must click on the People&Culture button in order to make the test pass', function () {
-            /** Insert the code here */
-            expect(browser.getUrl()).to.be.equal("https://www.mindera.com/people-and-culture/");
+            //Click on the button
+            challenge1Page.peopleAndCulture.click();
+
+            //Delete 'www' from url
+            expect(browser.getUrl()).to.be.equal("https://mindera.com/people-and-culture/");
         });
     });
 
     describe('Mindera QA Graduate Challenge 1.2 :', function () {
         it('You must change the expect assertion in order to make the test pass', function () {
-            /** Complete the expect() bellow */
-            expect(challenge1Page.contactCity).to.be.equal("PORTO, PT");
+            //Add .getText() so it can compare to string 'PORTO, PT'
+            expect(challenge1Page.contactCity.getText()).to.be.equal("PORTO, PT");
         });
     });
 
     describe('Mindera QA Graduate Challenge 1.3 :', function () {
         it('You must define the selector in order to make the test pass', function () {
-            /** Define the selector "jobList" in the challenge.page.js page object */
             var buttonText = challenge1Page.jobList.getText();
             expect(buttonText).to.be.equal("TEST AUTOMATION ENGINEER (M/F)");
         });
