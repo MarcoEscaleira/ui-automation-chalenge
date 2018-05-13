@@ -26,7 +26,7 @@ describe('Mindera QA Graduate Challenge 2:', function () {
 
         bubbles.forEach(function (e) { // Foreach bubble that showed up
             e.click(); //Click on the bubble
-            score++;       //Increment the count
+            score++;   //Increment the count
         });
 
         expect(score).to.be.equal(parseInt(challenge2Page.score.getText()));
