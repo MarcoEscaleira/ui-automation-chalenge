@@ -18,33 +18,37 @@ describe('Mindera QA Graduate Challenge 2:', function () {
     */
 
 
+
     it('Shoot all the bubbles that showed up after waiting 5 seconds', function () {
         browser.pause(5000);
 
-        var bubbles = $$(".bulle"); // Get all bubbles
-        var score   = 0;            //Count of bubbles clicked
+        var bubbles        = challenge2Page.bubbles;        // Get all bubbles by a proper defined element
+        var expected_score = challenge2Page.bubbles.length; //Count of bubbles clicked
 
         bubbles.forEach(function (e) { // Foreach bubble that showed up
-            e.click(); //Click on the bubble
-            score++;   //Increment the count
+            e.click();                 //Click on the bubble
         });
 
-        expect(score).to.be.equal(parseInt(challenge2Page.score.getText()));
+        expect(expected_score).to.be.equal(parseInt(challenge2Page.score.getText()));
     });
+
+
 
     //Challenge 2 - BONUS
     it('Shoot all the bubbles that show up', function () {
-        var score   = 0;
-        var bubbles = 15; // Limiter so the test doesn't run indefinitely
+        var c2 = challenge2Page;
+        var counter = 0;
 
-        while (bubbles > score) {
-            if (browser.isExisting('.bulle')) { //With .isExisting checks if element '.bulle' exists
-                $(".bulle").click();
-                score++;
+        while (c2.bubbles_limiter > c2.score.getText()) {
+            if (browser.isExisting(c2.bubble_class)) { //With .isExisting checks if element '.bulle' exists
+                c2.bubble_click(); //Call the method to click on the bubble
+                counter++;         //Increment the flag
+
+                expect(counter).to.be.equal(parseInt(c2.score.getText())); //Validate the score counter
             }
-        }
+        } //While to limit the test
 
-        expect(score).to.be.equal(parseInt(challenge2Page.score.getText()));
+        expect(counter).to.be.equal(parseInt(c2.score.getText()));
     });
     
 });
