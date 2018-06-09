@@ -28,8 +28,6 @@ describe('Mindera QA Graduate Challenge 3:', function () {
         For some reason the validation of the form in the client side doesn't open the alert.
 
         Form when viewport is lower than 700px width makes all inputs stop displaying
-
-        In this thrid challenge I got somewhat confused as for the 'it' statements I didn't get sure if it was suppose to force success on the expect function.
     */
 
     it('Click "Create User" button with all fields empty should return a warning message', function () {
@@ -58,9 +56,7 @@ describe('Mindera QA Graduate Challenge 3:', function () {
         try {
             expect(browser.alertText()).to.be.equal("The information in the form is not correct.");
         } finally {
-            if (browser.alertText()) {
-                browser.alertDismiss();
-            }
+            challenge3Page.alert_action();
         }
     });
 
@@ -73,9 +69,7 @@ describe('Mindera QA Graduate Challenge 3:', function () {
         try {
             expect(browser.alertText()).to.be.equal("The information in the form is not correct.");
         } finally {
-            if (browser.alertText()) {
-                browser.alertDismiss();
-            }
+            challenge3Page.alert_action();
         }
     });
 

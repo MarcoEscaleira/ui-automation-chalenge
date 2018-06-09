@@ -8,11 +8,13 @@ describe('Mindera QA Graduate Challenge 1:', function () {
 
     describe('Mindera QA Graduate Challenge 1.1 :', function () {
         it('You must click on the People&Culture button in order to make the test pass', function () {
+            c1 = challenge1Page;
+
             //Click on the button
-            challenge1Page.peopleAndCulture.click();
+            c1.peopleAndCulture.click();
 
             //Delete 'www' from url
-            expect(browser.getUrl()).to.be.equal("https://mindera.com/people-and-culture/");
+            expect(c1.url).to.be.equal("https://mindera.com/people-and-culture/");
         });
     });
 
@@ -25,8 +27,7 @@ describe('Mindera QA Graduate Challenge 1:', function () {
 
     describe('Mindera QA Graduate Challenge 1.3 :', function () {
         it('You must define the selector in order to make the test pass', function () {
-            var buttonText = challenge1Page.jobList.getText();
-            expect(buttonText).to.be.equal("TEST AUTOMATION ENGINEER (M/F)");
+            expect(challenge1Page.jobList.getText()).to.be.equal("TEST AUTOMATION ENGINEER (M/F)");
         });
     });
 });
